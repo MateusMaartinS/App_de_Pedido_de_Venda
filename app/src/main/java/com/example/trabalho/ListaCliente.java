@@ -21,5 +21,5 @@ public class ListaCliente extends AppCompatActivity {
         for (Cliente cliente: lista){
             texto += "CPF: "+cliente.getCPF()+ " Nome: "+ cliente.getNome()+"\n";
         }
-    
+
 }

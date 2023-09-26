@@ -33,8 +33,6 @@ public class AdicionarCliente extends AppCompatActivity {
             }
         });
 
-        atualizarLista();
-
     }
 
     private void salvarCliente() {
@@ -66,9 +64,6 @@ public class AdicionarCliente extends AppCompatActivity {
         finish();
     }
 
-
-
-    }
 
 
 }
