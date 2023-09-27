@@ -32,9 +32,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         btListaCliente = findViewById(R.id.btListaCliente);
+        btListaCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirLista();
+            }
+        });
         btNovoProduto = findViewById(R.id.btNovoProduto);
         btListaProduto = findViewById(R.id.btListaProduto);
         btNovaVenda = findViewById(R.id.btNovaVenda);
+    }
+
+    private void abrirLista() {
+        Intent abrirListaClientes = new Intent(MainActivity.this, ListaCliente.class);
+
+        startActivity(abrirListaClientes);
     }
 
     private void abrirNovoCliente() {

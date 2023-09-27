@@ -2,10 +2,12 @@ package com.example.trabalho;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -17,6 +19,10 @@ public class AdicionarCliente extends AppCompatActivity {
     private EditText edCPFCliente;
 
     private Button btSalvarCliente;
+
+    private Button btVoltarNvCli;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,22 @@ public class AdicionarCliente extends AppCompatActivity {
                 salvarCliente();
             }
         });
+
+        btVoltarNvCli = findViewById(R.id.btVoltarNvCli);
+
+        btVoltarNvCli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                voltarPaginaInicial();
+            }
+        });
+
+    }
+
+    private void voltarPaginaInicial() {
+        Intent voltarParaMain = new Intent(AdicionarCliente.this, MainActivity.class);
+
+        startActivity(voltarParaMain);
 
     }
 
@@ -62,8 +84,16 @@ public class AdicionarCliente extends AppCompatActivity {
         Toast.makeText(AdicionarCliente.this," Cliente Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
 
         finish();
+
     }
+    private void atualizarLista() {
+        String texto = "";
+        ArrayList<Cliente> lista = Controller.getInstance().retornarCliente();
+        for (Cliente cliente : lista) {
+            texto += "CPF: " + cliente.getCPF() + " Nome: " + cliente.getNome() + "\n";
+        }
 
-
-
+    }
 }
+
+
