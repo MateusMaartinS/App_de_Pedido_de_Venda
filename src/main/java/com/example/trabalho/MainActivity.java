@@ -53,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         btNovaVenda = findViewById(R.id.btNovaVenda);
+        btNovaVenda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirNovaVenda();
+            }
+        });
+    }
+
+    private void abrirNovaVenda() {
+        Intent abrirNovaVenda = new Intent(MainActivity.this, NovaVenda.class);
+
+        startActivity(abrirNovaVenda);
     }
 
     private void abrirListaProduto() {
